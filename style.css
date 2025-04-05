@@ -1,0 +1,324 @@
+/* Background Effects: soft pink-to-gold gradient */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #fce4ec 0%, #ffd1dc 40%, #ffe4b2 100%);
+    background-attachment: fixed;
+    background-size: cover;
+    color: #333;
+    position: relative;
+    overflow-x: hidden;
+  }
+  
+  /* Sparkles Overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("https://raw.githubusercontent.com/marcofugaro/particles-bg/master/media/sparkle.png") repeat;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  /* Fireworks Overlay */
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif") center center no-repeat;
+    background-size: cover;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
+    animation: fireworksAnimation 5s infinite;
+  }
+  @keyframes fireworksAnimation {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.2; }
+  }
+  
+  .container {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 20px;
+    animation: fadeIn 1.5s ease-in;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Flex layout for main content and sidebar */
+  .main-wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .content {
+    flex: 1;
+  }
+  .side-image {
+    margin: 20px auto;
+    text-align: center;
+    max-width: 200px;
+  }
+  .side-image img {
+    width: 100%;
+    height: auto;
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  /* Header Styling */
+  header {
+    text-align: center;
+    padding: 20px 0;
+  }
+  header h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3em;
+    margin-bottom: 0.2em;
+    color: #d4af37;
+    text-shadow: 1px 1px 2px #c8a207;
+  }
+  header p {
+    font-size: 1.2em;
+    color: #555;
+  }
+  
+  /* Common Section Styles */
+  section {
+    margin: 30px 0;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border: 2px solid #d4af37;
+  }
+  section:hover {
+    transform: translateY(-5px);
+  }
+  section h2 {
+    color: #e91e63;
+    margin-bottom: 15px;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  section h2::before {
+    content: "✨ ";
+  }
+  
+  /* SELF-CARE TIPS SECTION */
+  .tips-list {
+    list-style: disc inside;
+    margin: 0;
+    padding: 0;
+  }
+  .tips-list li {
+    margin-bottom: 10px;
+  }
+  
+  /* RESOURCES SECTION */
+  .resources .resources-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .resources .resource-item {
+    flex: 1 1 calc(33.33% - 20px);
+    min-width: 200px;
+    text-align: center;
+  }
+  .resources .resource-item p {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #e91e63;
+  }
+  .resources .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+  }
+  .resources .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* GALLERY SECTION */
+  .gallery .image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 15px;
+  }
+  .gallery .image-grid img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border: 2px solid #d4af37;
+  }
+  .gallery .image-grid img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* FEEL-GOOD SECTION */
+  .feel-good {
+    position: relative;
+  }
+  .feel-good button {
+    background: #d4af37;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .feel-good button:hover {
+    background: #c8a207;
+  }
+  .feel-good p {
+    margin-top: 15px;
+    font-size: 1.1em;
+    color: #555;
+    min-height: 24px;
+  }
+  
+  /* Balloon Pop Effect */
+  @keyframes balloonPop {
+    0% { opacity: 1; transform: translateY(0) scale(1); }
+    100% { opacity: 0; transform: translateY(-100px) scale(1.5); }
+  }
+  .balloon {
+    position: absolute;
+    font-size: 2em;
+    animation: balloonPop 1s ease-out forwards;
+  }
+  
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 20px 0;
+    color: #777;
+    font-size: 0.9em;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInText {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade {
+    animation: fadeInText 0.5s ease;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .main-wrapper {
+      flex-direction: column;
+    }
+    .side-image {
+      margin-top: 20px;
+      flex: 0 0 auto;
+    }
+    header h1 {
+      font-size: 2em;
+    }
+    .container {
+      padding: 10px;
+    }
+    section {
+      padding: 15px;
+    }
+    .resources .resource-item {
+      flex: 1 1 100%;
+    }
+  }
+  .affirmations {
+    margin: 30px 0;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border: 2px solid #d4af37;
+    transition: transform 0.3s ease;
+  }
+  .affirmations:hover {
+    transform: translateY(-5px);
+  }
+  .affirmations h2 {
+    color: #e91e63;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .affirmations h2::before {
+    content: "✨ ";
+  }
+  .affirmations-list ul {
+    list-style: disc inside;
+    margin: 0;
+    padding: 0;
+  }
+  .affirmations-list li {
+    margin-bottom: 10px;
+  }
+  
+  /* Journal Section */
+  .journal {
+    margin: 30px 0;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border: 2px solid #d4af37;
+    transition: transform 0.3s ease;
+  }
+  .journal:hover {
+    transform: translateY(-5px);
+  }
+  .journal h2 {
+    color: #e91e63;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .journal h2::before {
+    content: "✨ ";
+  }
+  .journal p {
+    margin-bottom: 15px;
+    color: #555;
+  }
+  .journal textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d4af37;
+    border-radius: 4px;
+    resize: vertical;
+  }
